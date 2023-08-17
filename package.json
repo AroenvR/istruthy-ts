@@ -1,8 +1,9 @@
 {
-  "name": "es-ts-template",
+  "name": "istruthy-ts",
   "version": "1.0.0",
   "description": "Simple ESLint and TypeScript template.",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "nodemon index.ts",
     "test": "jest",

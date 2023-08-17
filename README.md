@@ -1,60 +1,82 @@
-# TypeScript Project Template
-This project is a pre-configured template for Node.js applications using TypeScript.
+# isTruthy TypeScript
 
-## Getting Started
-Before you begin, ensure you have Node.js and npm installed on your machine.
+### TL;DR:
+```  
+npm i istruthy-js  
+```  
+This function checks if the given data is truthy.  
+By default: if an object, array, set, or map contains ANY truthy values, it is truthy.  
+By default: the value 0 is considered as truthy.
 
-## Prerequisites
-- Node.js 14.x or later
-- npm 6.x or later
+Package at: https://www.npmjs.com/package/istruthy-ts  
+GitHub repository at: https://github.com/AroenvR/istruthy-ts  
 
-## Installing
-Clone the repository to your local machine:
-```
-git clone https://github.com/AroenvR/es-ts-template
-```
-Navigate into the directory:
-```
-cd es-ts-template
-```
-Install the dependencies:
-```
-npm i
-```
-### Rename example.env to .env
-## Running the application
-To run the application:
-```
-npm start
-```
+## Supports the following data types:
+ - boolean
+ - number
+ - string
+ - objects
+ - arrays
+ - nested arrays
+ - sets
+ - nested sets
+ - maps
+ - nested maps
+ - null
+ - undefined
+ - NaN
 
-To run the application's tests:
-```
-npm run test
-```
+<br>
 
-## Features
-- Preconfigured TypeScript for static typing in JavaScript
-- ESLint for linting, with a custom configuration
-- Nodemon for automatically restarting your application when file changes are detected
-- Basic structure for a Node.js project
+### Disclaimer
+This function is primarily designed for use in frontend applications, where it can be utilized to ensure that rendered elements are truthy and prevent potential crashes in the user interface.  
+While it may have additional potential use cases, this is the main purpose of the function.
 
-## Project Structure
-- `src/`: The source files of the application
-- `src/__tests__/`: The testing directory
-- `dist/`: The transpiled code that is used for production
-- `node_modules/`: The installed npm dependencies (do not modify)
-- `tsconfig.json`: The TypeScript compiler options
-- `.eslintrc.json`: ESLint rules
-- `.eslintignore`: Files to be ignored by ESLint
-- `package.json`: npm package manager file, lists project information and dependencies
-- `nodemon.json`: Nodemon configuration file
+<br>
+<hr>
+<br>
 
-## Built With
-- [Node.js](https://nodejs.org/) - JavaScript runtime
-- [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
-- [ESLint](https://eslint.org/) - Linter for JavaScript and TypeScript
-- [Nodemon](https://nodemon.io/) - Utility to automatically restart node applications
+## Parameters
+- `data` (required): The data, object or array to check.
+- `zero` (optional): If this parameter === false, then 0 is also considered falsy.
+- `obj` (optional): If this parameter === true, then the function will only allow objects where all values are truthy.
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details
+### Returns
+- `true` if the data is truthy.
+- `false` if the data is falsy.
+
+### Usage
+import { isTruthy } from 'isTruthy';
+
+console.log(isTruthy(true)); // true  
+console.log(isTruthy(false)); // false   
+
+console.log(isTruthy(0)); // true  
+console.log(isTruthy(0, false)); // false
+
+Check the example test script (using Jest) for detailed examples.
+
+## Notes
+
+- The function uses `Object.getOwnPropertyNames(data)` and `Object.getPrototypeOf(data)` to check if the given data is an object and if it is empty or not.
+- The function uses `Array.isArray(data)` to check if the given data is an array.
+- The function uses `typeof(data)` to check the type of data.
+- The function uses `for...of` loop to iterate over sets and maps.
+- If `zero` parameter is set to false, the function considers 0 as falsy.
+- If `obj` parameter is set to true, the function will only allow objects where all values are truthy.
+
+<hr>
+
+## Currently known constraints
+Things the isTruthy function cannot (currently) handle:  
+Classes  
+Funnctions  
+Generators  
+Enums  
+Symbols  
+BigInt  
+Promises  
+.. Maybe others I missed?
+
+## Possible vulnerability
+Currently no circular reference check is implemented.
