@@ -1,15 +1,15 @@
-# isTruthy TypeScript
+# isTruthy TypeScript version
 
 ### TL;DR:
 ```  
-npm i istruthy-js  
+npm i ts-istruthy  
 ```  
 This function checks if the given data is truthy.  
 By default: if an object, array, set, or map contains ANY truthy values, it is truthy.  
 By default: the value 0 is considered as truthy.
 
-Package at: https://www.npmjs.com/package/istruthy-ts  
-GitHub repository at: https://github.com/AroenvR/istruthy-ts  
+Package at: https://www.npmjs.com/package/ts-istruthy  
+GitHub repository at: https://github.com/AroenvR/ts-istruthy  
 
 ## Supports the following data types:
  - boolean
@@ -46,7 +46,7 @@ While it may have additional potential use cases, this is the main purpose of th
 - `false` if the data is falsy.
 
 ### Usage
-import { isTruthy } from 'isTruthy';
+import { isTruthy } from 'ts-istruthy';
 
 console.log(isTruthy(true)); // true  
 console.log(isTruthy(false)); // false   

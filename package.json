@@ -1,5 +1,5 @@
 {
-  "name": "istruthy-ts",
+  "name": "ts-istruthy",
   "version": "1.0.0",
   "description": "Simple ESLint and TypeScript template.",
   "main": "dist/index.js",
